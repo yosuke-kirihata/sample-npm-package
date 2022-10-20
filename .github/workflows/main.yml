@@ -6,7 +6,7 @@ on:
   push:
     # 対象ブランチ
     branches:
-      - master
+      - main
 
 jobs:
   setup:
