@@ -16,9 +16,10 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: "@yosuke-kirihata"
       - run: cat /home/runner/work/_temp/.npmrc
-      - run: npx can-npm-publish --verbose && npm install
-#       - run: npx can-npm-publish --verbose
-#         if: success()
+      - run: npx can-npm-publish --verbose
+        if: success()
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - run: npx tsc
       - run: npm publish
         env:
